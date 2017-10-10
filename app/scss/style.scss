@@ -1,7 +1,58 @@
 /* style.css */
-.testing {
-  width: 71.42857%;
+
+$font-stack: Georgia, serif;
+$primary-color: rebeccapurple;
+$secondary-color: white;
+
+html, body {
+  font: 100% $font-stack;
+  font-size: 1em;
+  color: $primary-color;
 }
-p {
-  color: red;
+table {
+  border-collapse: collapse;
+  margin: 0 auto;
+  text-align: center;
+    tr {
+       &:first-child {
+         td {
+           border-top: 0;
+         }
+       }
+       &:last-child {
+         td {
+           border-bottom: 0;
+         }
+       }
+      td {
+        border: 2px solid $primary-color;
+        height: 9em;
+        width: 9em;
+        cursor: pointer;
+        &:first-child {
+          border-left: 0;
+        }
+        &:last-child {
+          border-right: 0;
+        }
+      }
+    }
+}
+.endgame {
+  display: none;
+  width: 25em;
+  height: 9em;
+  top: 120px;
+  background-color: rgba(205,133,63, .8);
+  // position: absolute;
+  // left: 50%;
+  // margin-left: -100px;
+  position: fixed;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding-top: 50px;
+  padding-bottom: 50px;
+  border-radius: 5px;
+  color: $secondary-color;
 }
