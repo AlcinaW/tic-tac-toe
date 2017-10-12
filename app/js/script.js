@@ -33,12 +33,13 @@ function startGame() {
 
 function turnClick(square) {
   //prevent clicking on spots already clicked
-
-  //call turn function, pass in humanPlayer
-  turn(square.target.id, humanPlayer);
-  //console.log(square.target.id);
-  //before the AI plays, check if it is a tie
-  if(!checkTie()) turn(bestSpot(), aiPlayer);
+  if (typeof originalBoard[square.target.id] === 'number') {
+    //call turn function, pass in humanPlayer
+    turn(square.target.id, humanPlayer);
+    //console.log(square.target.id);
+    //before the AI plays, check if it is a tie
+    if(!checkTie()) turn(bestSpot(), aiPlayer);
+  }
 }
 
 function turn(squareId, player){
@@ -81,4 +82,17 @@ function gameOver(gameWon) {
   for (var i=0; i < cells.length; i++) {
     cells[i].removeEventListener('click', turnClick, false);
   }
+}
+
+function emptySquares() {
+  //if squares are numbers, they are empty (vs X or O)
+  return originalBoard.filter(s => typeof s == 'number');
+}
+
+function bestSpot() {
+  return emptySquares()[0];
+}
+
+function checkTie() {
+  
 }
