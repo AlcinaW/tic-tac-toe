@@ -82,6 +82,12 @@ function gameOver(gameWon) {
   for (var i=0; i < cells.length; i++) {
     cells[i].removeEventListener('click', turnClick, false);
   }
+  declareWinner(gameWon.player == humanPlayer ? "You win!" : "You lose!")
+}
+
+function declareWinner(who) {
+  document.querySelector(".endgame").style.display = "block";
+  document.querySelector(".endgame .text").innerText = who;
 }
 
 function emptySquares() {
@@ -94,5 +100,14 @@ function bestSpot() {
 }
 
 function checkTie() {
-  
+  //if all squares are filled and no winner, it is a tie
+  if (emptySquares().length == 0) {
+    for (var i = 0; i < cells.length; i++) {
+      cells[i].style.backgroundColor = "green";
+      cells[i].removeEventListener('click', turnClick, false);
+    }
+    declareWinner("Tie game!");
+    return true;
+  }
+  return false;
 }
