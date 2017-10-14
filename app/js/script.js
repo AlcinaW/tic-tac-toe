@@ -1,6 +1,6 @@
 var originalBoard; //original board, array that keeps track of what is in the square
 //var squareTarget = square.target.id;
-const huPlayer = 'O';
+const humanPlayer = 'O';
 const aiPlayer = 'X';
 //combos that mean that the game is won
 const winCombos = [
@@ -34,11 +34,11 @@ function turnClick(square) {
   //prevent clicking on spots already clicked
   if (typeof originalBoard[square.target.id] == 'number') {
   //call turn function, pass in humanPlayer
-  turn(square.target.id, huPlayer)
+  turn(square.target.id, humanPlayer)
   //console.log(square.target.id);
   //before the AI plays, check if it is a tie
   //if(!checkTie()) turn(bestSpot(), aiPlayer);
-  if (!checkWin(originalBoard, huPlayer) && !checkTie()) turn(bestSpot(), aiPlayer);
+  if (!checkWin(originalBoard, humanPlayer) && !checkTie()) turn(bestSpot(), aiPlayer);
   }
 }
 
@@ -79,12 +79,12 @@ function gameOver(gameWon) {
   //highlight winning combo, disable clicking
   for (let index of winCombos[gameWon.index]) {
     document.getElementById(index).style.backgroundColor =
-    gameWon.player == huPlayer ? "blue" : "red";
+    gameWon.player == humanPlayer ? "blue" : "red";
   }
   for (var i = 0; i < cells.length; i++) {
     cells[i].removeEventListener('click', turnClick, false);
   }
-  declareWinner(gameWon.player == huPlayer ? "You win!" : "You lose.");
+  declareWinner(gameWon.player == humanPlayer ? "You win!" : "You lose.");
 }
 
 function declareWinner(who) {
@@ -119,7 +119,7 @@ function checkTie() {
 function minimax(newBoard, player) {
 	var availSpots = emptySquares(newBoard);
 
-	if (checkWin(newBoard, huPlayer)) {
+	if (checkWin(newBoard, humanPlayer)) {
 		return {score: -10};
 	} else if (checkWin(newBoard, aiPlayer)) {
 		return {score: 10};
@@ -133,7 +133,7 @@ function minimax(newBoard, player) {
 		newBoard[availSpots[i]] = player;
 
 		if (player == aiPlayer) {
-			var result = minimax(newBoard, huPlayer);
+			var result = minimax(newBoard, humanPlayer);
 			move.score = result.score;
 		} else {
 			var result = minimax(newBoard, aiPlayer);
