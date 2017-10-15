@@ -57,25 +57,6 @@ table {
   color: $secondary-color;
 }
 
-// #modal {
-//   position: fixed;
-//   top: 0;
-//   left: 0;
-//   background: rgba(0, 0, 0, 0.8);
-//   z-index: 99999;
-//   height: 100%;
-//   width: 100%;
-// }
-// .modalcontent {
-//   position: absolute;
-//   top: 50%;
-//   left: 50%;
-//   transform: translate(-50%, -50%);
-//   background: #fff;
-//   width: 80%;
-//   padding: 20px;
-// }
-
 .modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
@@ -105,7 +86,7 @@ table {
     float: right;
     font-size: 28px;
     font-weight: bold;
-    
+
 }
 
 .close:hover,

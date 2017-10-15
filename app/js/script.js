@@ -14,6 +14,7 @@ window.onload = function() {
         //document.getElementById('myModal').style.display = "none"
 
         modal.style.display = "block"
+        symbolSelect.style.display = "block";
     //};
 };
 
@@ -21,22 +22,24 @@ window.onload = function() {
 
 
 
-// Get the button that opens the modal
-var btn = document.getElementById("myButton");
+// replay button
+var replayButton = document.getElementById("replay-button");
 
 // Get the <span> element that closes the modal
-// TODO get rid of extra span 
+// TODO get rid of extra span
 var span = document.getElementsByClassName("close")[0];
 
 // When the user clicks the button, open the modal
-btn.onclick = function() {
+replayButton.onclick = function() {
     modal.style.display = "block";
+    symbolSelect.style.display = "block";
     startGame();
 }
 
 // When the user clicks on <span> (x), close the modal
 span.onclick = function() {
     modal.style.display = "none";
+    symbolSelect.style.display = "none";
 }
 
 // When the user clicks anywhere outside of the modal, close it
@@ -81,6 +84,7 @@ function selectSym(sym){
   }
   //document.querySelector(".selectSym").style.display = "none";
   modal.style.display = "none";
+  symbolSelect.style.display = "none";
 }
 
 function startGame() {
@@ -88,6 +92,7 @@ function startGame() {
   endgameText.innerText = "";
   //document.querySelector(".selectSym").style.display = "block";
   modal.style.display = "block";
+  symbolSelect.style.display = "block";
   //create array and give it a number
   //originalBoard = Array.from(Array(9).keys());
   //console.log(originalBoard);
@@ -157,6 +162,8 @@ function gameOver(gameWon){
 }
 
 function declareWinner(who) {
+  //TODO SHOW MODAL?? + hide symbol select
+  modal.style.display = "block"
   endgame.style.display = "block";
   endgameText.innerText = who;
 }
