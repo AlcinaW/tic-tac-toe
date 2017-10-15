@@ -1,6 +1,58 @@
+// Get the modal
+var modal = document.getElementById('info-modal');
+
+var endgame = document.querySelector(".endgame");
+
+var endgameText = document.querySelector(".endgame .text");
+
+//var indexDiv = document.getElementById(index);
+
+var symbolSelect = document.querySelector(".select-symbol");
+
+window.onload = function() {
+    //document.getElementById("myBtn").onclick = function () {
+        //document.getElementById('myModal').style.display = "none"
+
+        modal.style.display = "block"
+    //};
+};
+
+
+
+
+
+// Get the button that opens the modal
+var btn = document.getElementById("myButton");
+
+// Get the <span> element that closes the modal
+// TODO get rid of extra span 
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal
+btn.onclick = function() {
+    modal.style.display = "block";
+    startGame();
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+    modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+// window.onclick = function(event) {
+//     if (event.target == modal) {
+//         modal.style.display = "none";
+//     }
+// }
+
+
+
+
+
 let originalBoard; //original board, array that keeps track of what is in the square
 //var squareTarget = square.target.id;
-let humanPlayer ="O";
+let humanPlayer = "O";
 let aiPlayer = "X";
 //combos that mean that the game is won
 const winCombos =[
@@ -27,13 +79,15 @@ function selectSym(sym){
   if (aiPlayer === "X") {
     turn(bestSpot(), aiPlayer);
   }
-  document.querySelector(".selectSym").style.display = "none";
+  //document.querySelector(".selectSym").style.display = "none";
+  modal.style.display = "none";
 }
 
 function startGame() {
-  document.querySelector(".endgame").style.display = "none";
-  document.querySelector(".endgame .text").innerText = "";
-  document.querySelector(".selectSym").style.display = "block";
+  endgame.style.display = "none";
+  endgameText.innerText = "";
+  //document.querySelector(".selectSym").style.display = "block";
+  modal.style.display = "block";
   //create array and give it a number
   //originalBoard = Array.from(Array(9).keys());
   //console.log(originalBoard);
@@ -103,8 +157,8 @@ function gameOver(gameWon){
 }
 
 function declareWinner(who) {
-  document.querySelector(".endgame").style.display = "block";
-  document.querySelector(".endgame .text").innerText = who;
+  endgame.style.display = "block";
+  endgameText.innerText = who;
 }
 function emptySquares() {
   //if squares are numbers, they are empty (vs X or O)

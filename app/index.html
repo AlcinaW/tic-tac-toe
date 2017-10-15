@@ -24,19 +24,74 @@
         <td class="cell" id="8"></td>
       </tr>
     </table>
-    <div class="endgame">
-      <div class="text">
-      </div>
-    </div>
+
+
+
+
+
+
     <!-- enable selection of symbol -->
     <!-- TODO change to other image -->
-    <div class = "selectSym">
+    <!-- <div class = "selectSym">
     <p>Select symbol:</p>
       <button onClick="selectSym('X')">X</button>
       <button onClick="selectSym('O')">O</button>
+    </div> -->
+
+
+
+    <!--
+
+<button id="trigger" class="trigger-button" type="button">Launch Modal</button>
+
+
+    <div id="modal">
+        <div class="modalcontent">
+            <div class = "selectSym">
+            <p>Select symbol:</p>
+              <button id="button" onClick="selectSym('X')">X</button>
+              <button id="button" onClick="selectSym('O')">O</button>
+            </div>
+        </div>
+    </div> -->
+
+
+    <!-- Trigger/Open The Modal -->
+    <!-- <button id="myBtn">Open Modal</button> -->
+
+    <!-- The Modal -->
+    <div id="info-modal" class="modal">
+
+
+      <div class="endgame">
+        <div class="text">
+        </div>
+      </div>
+
+
+
+
+
+      <!-- Modal content -->
+      <div class="modal-content select-symbol">
+        <!-- <span class="close">&times;</span> -->
+        <!-- <div class = "selectSym"> -->
+        <p>Select symbol:</p>
+          <button onClick="selectSym('X')"><span class="close">X</span></button>
+          <button onClick="selectSym('O')"><span class="close">O</span></button>
+        <!-- </div> -->
+      </div>
+
     </div>
 
-    <button type="button" name="button" onClick="startGame()">Replay</button>
+
+
+
+
+
+
+    <!-- <button id="myBtn" type="button" name="button" onClick="startGame()">Replay</button> -->
+    <button id="myButton" type="button" name="button">Replay</button>
 
     <script type="text/javascript" src="js/script.js"></script>
   </body>
