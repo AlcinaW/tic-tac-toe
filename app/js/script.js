@@ -1,33 +1,25 @@
-// Get the modal
-var modal = document.getElementById('info-modal');
-
-var endgame = document.querySelector(".endgame");
-
-var endgameText = document.querySelector(".endgame .text");
-
-//var indexDiv = document.getElementById(index);
-
-var symbolSelect = document.querySelector(".select-symbol");
-
-window.onload = function() {
-    //document.getElementById("myBtn").onclick = function () {
-        //document.getElementById('myModal').style.display = "none"
-
-        modal.style.display = "block"
-        symbolSelect.style.display = "block";
-    //};
-};
-
-
-
-
-
+//get the modal
+const modal = document.getElementById("info-modal");
+//endgame info in modal
+const endgame = document.querySelector(".endgame");
+//endgame info in modal, shows who won
+const endgameText = document.querySelector(".endgame .text");
+//selection info in modal, play X or O
+const symbolSelect = document.querySelector(".select-symbol");
 // replay button
-var replayButton = document.getElementById("replay-button");
+const replayButton = document.getElementById("replay-button");
 
 // Get the <span> element that closes the modal
 // TODO get rid of extra span
-var span = document.getElementsByClassName("close")[0];
+const span = document.getElementsByClassName("close")[0];
+
+
+//var indexDiv = document.getElementById(index);
+
+window.onload = function() {
+  modal.style.display = "block"
+  symbolSelect.style.display = "block";
+}
 
 // When the user clicks the button, open the modal
 replayButton.onclick = function() {
@@ -41,17 +33,6 @@ span.onclick = function() {
     modal.style.display = "none";
     symbolSelect.style.display = "none";
 }
-
-// When the user clicks anywhere outside of the modal, close it
-// window.onclick = function(event) {
-//     if (event.target == modal) {
-//         modal.style.display = "none";
-//     }
-// }
-
-
-
-
 
 let originalBoard; //original board, array that keeps track of what is in the square
 //var squareTarget = square.target.id;
@@ -106,6 +87,7 @@ function startGame() {
 
 function turnClick(square) {
   //prevent clicking on spots already clicked
+  //TODO replace this typeOf?
   if (typeof originalBoard[square.target.id] === "number") {
     //call turn function, pass in humanPlayer
     turn(square.target.id, humanPlayer);
@@ -169,7 +151,6 @@ function declareWinner(who) {
 }
 function emptySquares() {
   //if squares are numbers, they are empty (vs X or O)
-  //return originalBoard.filter(s => typeof s == "number");
   return originalBoard.filter((elm, i) => i === elm);
 }
 
