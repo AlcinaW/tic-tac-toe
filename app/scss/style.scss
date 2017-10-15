@@ -3,6 +3,10 @@
 $font-stack: Georgia, serif;
 $primary-color: rebeccapurple;
 $secondary-color: white;
+$overlay-color: rgba(0,0,0,0.4);
+$overlay-fallback: rgb(0,0,0); /* fallback */
+$modal-color: #fefefe;
+$dark-grey: #888;
 
 html, body {
   font: 100% $font-stack;
@@ -38,45 +42,24 @@ table {
       }
     }
 }
-
 .modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    padding-top: 100px; /* Location of the box */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-
-    .modal-content {
-        background-color: #fefefe;
-        margin: auto;
-        padding: 20px;
-        border: 1px solid #888;
-        width: 80%;
-    }
-
+  /* hidden by default */
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 2em;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: $overlay-fallback;
+  background-color: $overlay-color;
+  .modal-content {
+    background-color: $modal-color;
+    margin: auto;
+    padding: .5em;
+    border: 1px solid $dark-grey;
+    width: 50%;
+  }
 }
-// .close:hover,
-// .close:focus {
-//     color: #000;
-//     text-decoration: none;
-//     cursor: pointer;
-// }
-
-
-/* Modal Content */
-
-
-/* The Close Button */
-// .close {
-//     color: #aaaaaa;
-//     float: right;
-//     font-size: 28px;
-//     font-weight: bold;
-//
-// }
