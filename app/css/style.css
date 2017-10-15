@@ -22,21 +22,6 @@ table {
     table tr td:last-child {
       border-right: 0; }
 
-.endgame {
-  display: none;
-  width: 25em;
-  height: 9em;
-  top: 120px;
-  background-color: rgba(205, 133, 63, 0.8);
-  position: fixed;
-  top: 25%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  padding-top: 50px;
-  padding-bottom: 50px;
-  border-radius: 5px;
-  color: white; }
-
 .modal {
   display: none;
   /* Hidden by default */
@@ -58,24 +43,12 @@ table {
   /* Fallback color */
   background-color: rgba(0, 0, 0, 0.4);
   /* Black w/ opacity */ }
+  .modal .modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; }
 
 /* Modal Content */
-.modal-content {
-  background-color: #fefefe;
-  margin: auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%; }
-
 /* The Close Button */
-.close {
-  color: #aaaaaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold; }
-
-.close:hover,
-.close:focus {
-  color: #000;
-  text-decoration: none;
-  cursor: pointer; }
