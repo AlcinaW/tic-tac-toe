@@ -8,34 +8,13 @@ const endgameText = document.querySelector(".endgame .text");
 const symbolSelect = document.querySelector(".select-symbol");
 // replay button
 const replayButton = document.getElementById("replay-button");
-
-// Get the <span> element that closes the modal
+//cells
+const cells = document.querySelectorAll(".cell");
+//Get the <span> element that closes the modal
 // TODO get rid of extra span
 const span = document.getElementsByClassName("close")[0];
 
-
-//var indexDiv = document.getElementById(index);
-
-window.onload = function() {
-  modal.style.display = "block"
-  symbolSelect.style.display = "block";
-}
-
-// When the user clicks the button, open the modal
-replayButton.onclick = function() {
-    modal.style.display = "block";
-    symbolSelect.style.display = "block";
-    startGame();
-}
-
-// When the user clicks on <span> (x), close the modal
-span.onclick = function() {
-    modal.style.display = "none";
-    symbolSelect.style.display = "none";
-}
-
 let originalBoard; //original board, array that keeps track of what is in the square
-//var squareTarget = square.target.id;
 let humanPlayer = "O";
 let aiPlayer = "X";
 //combos that mean that the game is won
@@ -50,8 +29,26 @@ const winCombos =[
   [0, 3, 6]
 ];
 
-const cells = document.querySelectorAll(".cell");
 startGame();
+
+//on load
+window.onload = function() {
+  modal.style.display = "block"
+  symbolSelect.style.display = "block";
+}
+
+//when the user clicks on replay button, show symbol select and start game
+replayButton.onclick = function() {
+    modal.style.display = "block";
+    symbolSelect.style.display = "block";
+    startGame();
+}
+
+// when the user clicks on <span>, close the modal
+span.onclick = function() {
+    modal.style.display = "none";
+    symbolSelect.style.display = "none";
+}
 
 function selectSym(sym){
   humanPlayer = sym;
@@ -75,7 +72,6 @@ function startGame() {
   modal.style.display = "block";
   symbolSelect.style.display = "block";
   //create array and give it a number
-  //originalBoard = Array.from(Array(9).keys());
   //console.log(originalBoard);
   //To DO: replaces this for loop?
   for (let i = 0; i < cells.length; i++) {
@@ -87,13 +83,11 @@ function startGame() {
 
 function turnClick(square) {
   //prevent clicking on spots already clicked
-  //TODO replace this typeOf?
   if (typeof originalBoard[square.target.id] === "number") {
     //call turn function, pass in humanPlayer
     turn(square.target.id, humanPlayer);
     //console.log(square.target.id);
-    //before the AI plays, check if it is a tie
-    //if(!checkTie()) turn(bestSpot(), aiPlayer);
+    //before the ai plays, check if it is a tie
     if (!checkWin(originalBoard, humanPlayer) && !checkTie())
       turn(bestSpot(), aiPlayer);
   }
@@ -144,7 +138,7 @@ function gameOver(gameWon){
 }
 
 function declareWinner(who) {
-  //TODO SHOW MODAL?? + hide symbol select
+  //show modal stating who won + option to replay
   modal.style.display = "block"
   endgame.style.display = "block";
   endgameText.innerText = who;
@@ -174,7 +168,7 @@ function checkTie() {
 }
 
 function minimax(newBoard, player) {
-  var availableSpots = emptySquares(newBoard);
+  let availableSpots = emptySquares(newBoard);
   if (checkWin(newBoard, humanPlayer)) {
     return {score: -10};
   } else if (checkWin(newBoard, aiPlayer)) {
@@ -183,23 +177,23 @@ function minimax(newBoard, player) {
     return {score: 0};
   }
 
-  var moves = [];
+  let moves = [];
   for (let i = 0; i < availableSpots.length; i ++) {
-    var move = {};
+    let move = {};
     move.index = newBoard[availableSpots[i]];
     newBoard[availableSpots[i]] = player;
-
-    if (player === aiPlayer)
+    if (player === aiPlayer) {
       move.score = minimax(newBoard, humanPlayer).score;
-    else
+    } else {
        move.score =  minimax(newBoard, aiPlayer).score;
+    }
     newBoard[availableSpots[i]] = move.index;
-    if ((player === aiPlayer && move.score === 10) || (player === humanPlayer && move.score === -10))
+    if ((player === aiPlayer && move.score === 10) || (player === humanPlayer && move.score === -10)) {
       return move;
-    else
+    } else {
       moves.push(move);
+    }
   }
-
   let bestMove, bestScore;
   if (player === aiPlayer) {
     bestScore = -1000;

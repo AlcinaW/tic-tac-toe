@@ -1,9 +1,15 @@
 /* style.css */
 /* fallback */
 html, body {
-  font: 100% Georgia, serif;
+  font: 100% "Fredoka One", Helvetica, Arial, cursive;
   font-size: 1em;
   color: rebeccapurple; }
+
+h1 {
+  text-align: center; }
+
+h2 {
+  text-align: center; }
 
 table {
   border-collapse: collapse;
@@ -28,7 +34,7 @@ table {
   display: none;
   position: fixed;
   z-index: 1;
-  padding-top: 2em;
+  padding-top: .5em;
   left: 0;
   top: 0;
   width: 100%;
@@ -42,3 +48,6 @@ table {
     padding: .5em;
     border: 1px solid #888;
     width: 50%; }
+  .modal .select-symbol {
+    margin: 0 auto;
+    width: 25em; }

@@ -1,6 +1,6 @@
 /* style.css */
 
-$font-stack: Georgia, serif;
+$font-stack: 'Fredoka One', Helvetica, Arial, cursive;
 $primary-color: rebeccapurple;
 $secondary-color: white;
 $overlay-color: rgba(0,0,0,0.4);
@@ -12,6 +12,12 @@ html, body {
   font: 100% $font-stack;
   font-size: 1em;
   color: $primary-color;
+}
+h1 {
+  text-align: center;
+}
+h2 {
+    text-align: center;
 }
 table {
   border-collapse: collapse;
@@ -47,7 +53,7 @@ table {
   display: none;
   position: fixed;
   z-index: 1;
-  padding-top: 2em;
+  padding-top: .5em;
   left: 0;
   top: 0;
   width: 100%;
@@ -61,5 +67,9 @@ table {
     padding: .5em;
     border: 1px solid $dark-grey;
     width: 50%;
+  }
+  .select-symbol {
+    margin: 0 auto;
+    width: 25em;
   }
 }
