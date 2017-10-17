@@ -10,7 +10,7 @@ const symbolSelect = document.querySelector(".select-symbol");
 const replayButton = document.getElementById("replay-button");
 //cells
 const cells = document.querySelectorAll(".cell");
-//Get the <span> element that closes the modal
+//get the <span> element that closes the modal
 // TODO get rid of extra span
 const span = document.getElementsByClassName("close")[0];
 
@@ -33,14 +33,17 @@ startGame();
 
 //on load
 window.onload = function() {
+  //on load, show modal
   modal.style.display = "block"
+  //show symbol select in the modal
   symbolSelect.style.display = "block";
 }
 
-//when the user clicks on replay button, show symbol select and start game
+//when the user clicks on replay button, show symbol select and (re)start game
 replayButton.onclick = function() {
     modal.style.display = "block";
     symbolSelect.style.display = "block";
+    //run the function that starts the game
     startGame();
 }
 
@@ -50,34 +53,40 @@ span.onclick = function() {
     symbolSelect.style.display = "none";
 }
 
+//user can select the symbol
 function selectSym(sym){
   humanPlayer = sym;
   aiPlayer = sym === "O" ? "X" : "O";
   originalBoard = Array.from(Array(9).keys());
+  //loops through and read the click action on each cell
   for (let i = 0; i < cells.length; i++) {
     cells[i].addEventListener("click", turnClick, false);
   }
+  //if the human player chooses "O", the ai is "X" and goes first
   if (aiPlayer === "X") {
     turn(bestSpot(), aiPlayer);
   }
-  //document.querySelector(".selectSym").style.display = "none";
+  //hide the modal and selection options after the symbol is selected
   modal.style.display = "none";
   symbolSelect.style.display = "none";
 }
 
+//start game
 function startGame() {
+  //hide the text that shows who won the game
   endgame.style.display = "none";
+  //winner declaration text is currently empty
   endgameText.innerText = "";
-  //document.querySelector(".selectSym").style.display = "block";
+  //show modal to select symbol
   modal.style.display = "block";
   symbolSelect.style.display = "block";
   //create array and give it a number
   //console.log(originalBoard);
   //To DO: replaces this for loop?
+  //loop through the cells and remove the colours to replay
   for (let i = 0; i < cells.length; i++) {
     cells[i].innerText = "";
     cells[i].style.removeProperty("background-color");
-    //cells[i].addEventListener("click", turnClick, false);
   }
 }
 
