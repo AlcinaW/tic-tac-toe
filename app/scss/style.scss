@@ -1,6 +1,6 @@
 /* style.css */
 
-$font-stack: 'Fredoka One', Helvetica, Arial, cursive;
+$font-stack: 'Nunito', Helvetica, Arial, cursive;
 $primary-color: rebeccapurple;
 $secondary-color: white;
 $overlay-color: rgba(0,0,0,0.4);
@@ -10,6 +10,7 @@ $dark-grey: #888;
 
 html, body {
   font: 100% $font-stack;
+  font-weight: 400;
   font-size: 1em;
   color: $primary-color;
 }
@@ -71,5 +72,55 @@ table {
   .select-symbol {
     margin: 0 auto;
     width: 25em;
+  }
+}
+/* CSS GRID START */
+.container {
+  display: grid;
+  grid-template-columns: 40px 50px auto 50px 40px;
+  grid-template-rows: 25% 100px auto;
+  grid-template-columns: [first] 40px [line2] 50px [line3] auto [col4-start] 50px [five] 40px [end];
+  grid-template-rows: [row1-start] 25% [row1-end] 100px [third-line] auto [last-line];  
+}
+
+
+
+
+
+/* Swapping to full page modals + transitions? */
+/* particle effect by ShawnGrav https://codepen.io/ShawnGrav/pen/ZYVada?editors=0100 */
+.particle-count {
+  display: block;
+  text-align: center;
+  margin: 25px 0;
+}
+.particles > .particle {
+  border-radius: 100%;
+  background: transparent;
+
+  position: absolute;
+
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+
+  &.smaller {
+    width: 5px;
+    height: 5px;
+  }
+  &.small {
+    width: 10px;
+    height: 10px;
+  }
+  &.normal {
+    width: 15px;
+    height: 15px;
+  }
+  &.big {
+    width: 20px;
+    height: 20px;
+  }
+  &.bigger {
+    width: 25px;
+    height: 25px;
   }
 }
