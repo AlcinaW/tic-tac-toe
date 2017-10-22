@@ -11,18 +11,9 @@
   </head>
   <body>
 
-
-    <!-- CSS GRID TEST -->
+  <section class="play-area">
+    <!-- CSS Grid Container-->
     <div class="container">
-      <h1>Tic Tac Toe</h1>
-      <div class="item">fff</div>
-      <div class="item">xxx</div>
-      <div class="item">sss</div>
-
-    </div>
-
-
-
 
     <h1>Tic Tac Toe</h1>
     <!-- table to play -->
@@ -43,6 +34,14 @@
         <td class="cell" id="8"></td>
       </tr>
     </table>
+
+    <!-- CSS Grid Container end -->
+    </div>
+  </section>
+
+  <section class="modal-area">
+    <!-- CSS Grid Container-->
+    <div class="container">
     <!-- TODO change to other image -->
     <!-- modal to select symbol, show winner, and replay -->
 
@@ -52,11 +51,11 @@
 
       <div class="modal-content select-symbol">
         <!-- enable selection of symbol -->
-        <h2>Select symbol:</h2>
+        <h2>Let's play!</h2>
         <!-- TODO GET RID OF SPANS-->
         <!-- select symbol to play; X goes first -->
-        <button id="" onClick="selectSym('X')"><span class="close">X</span></button>
-        <button id="" onClick="selectSym('O')"><span class="close">O</span></button>
+        <button id="x-button" onClick="selectSym('X')"><span class="close">X</span></button>
+        <button id="o-button" onClick="selectSym('O')"><span class="close">O</span></button>
       </div>
 
       <!-- modal to show who is the winner -->
@@ -67,6 +66,9 @@
         <button id="replay-button" type="button" name="button">Replay</button>
       </div>
     </div>
+    <!-- CSS Grid Container end -->
+    </div>
+  </section>    
 
     <!-- JS -->
     <script type="text/javascript" src="js/script.js"></script>

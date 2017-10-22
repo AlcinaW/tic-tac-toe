@@ -53,13 +53,30 @@ table {
     width: 100%;
     height: 100%; }
 
+/* INPUT STYLES  */
+button {
+  width: auto;
+  height: auto;
+  align-items: flex-start;
+  text-align: center;
+  cursor: default;
+  color: rebeccapurple;
+  background-color: white;
+  box-sizing: border-box;
+  padding: 15px;
+  border-width: 0;
+  border-style: none;
+  border-color: white;
+  border-image: initial;
+  border: 1px solid red; }
+  button span {
+    font-size: 15em; }
+
 /* CSS GRID START */
 .container {
   display: grid;
-  grid-template-columns: 40px 50px auto 50px 40px;
-  grid-template-rows: 25% 100px auto;
-  grid-template-columns: [first] 40px [line2] 50px [line3] auto [col4-start] 50px [five] 40px [end];
-  grid-template-rows: [row1-start] 25% [row1-end] 100px [third-line] auto [last-line]; }
+  grid-template-columns: auto;
+  grid-template-rows: auto; }
 
 /* Swapping to full page modals + transitions? */
 /* particle effect by ShawnGrav https://codepen.io/ShawnGrav/pen/ZYVada?editors=0100 */
