@@ -43,6 +43,7 @@ table {
   background-color: black;
   background-color: rgba(0, 0, 0, 0.4); }
   .modal .modal-content {
+    background-color: #fefefe;
     margin: auto;
     padding: .5em;
     border: 1px solid #888;
@@ -50,7 +51,7 @@ table {
   .modal .select-symbol {
     margin: 0 auto;
     width: 100%;
-    height: 100%; }
+    height: 50%; }
 
 /* INPUT STYLES  */
 button {

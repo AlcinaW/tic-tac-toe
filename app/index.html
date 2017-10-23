@@ -40,8 +40,6 @@
   </section>
 
   <section class="modal-area">
-    <!-- CSS Grid Container-->
-    <div class="wrapper container">
     <!-- TODO change to other image -->
     <!-- modal to select symbol, show winner, and replay -->
 
@@ -50,10 +48,16 @@
       <div class="modal-content select-symbol">
         <!-- enable selection of symbol -->
         <h2>Let's play!</h2>
+
+        <!-- CSS Grid Container-->
+        <div class="wrapper container">
         <!-- TODO GET RID OF SPANS-->
         <!-- select symbol to play; X goes first -->
         <button id="x-button" onClick="selectSym('X')"><span class="close">X</span></button>
         <button id="o-button" onClick="selectSym('O')"><span class="close">O</span></button>
+        <!-- CSS Grid Container end -->
+        </div>
+
       </div>
 
       <!-- modal to show who is the winner -->
@@ -63,8 +67,6 @@
         <!-- only show replay button after the winner is declared -->
         <button id="replay-button" type="button" name="button">Replay</button>
       </div>
-    </div>
-    <!-- CSS Grid Container end -->
     </div>
   </section>
 
