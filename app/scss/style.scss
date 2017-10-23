@@ -8,6 +8,8 @@ $overlay-fallback: rgb(0,0,0); /* fallback */
 $modal-color: #fefefe;
 $dark-grey: #888;
 
+* {
+}
 html, body {
   font: 100% $font-stack;
   font-weight: 400;
@@ -78,15 +80,15 @@ table {
 }
 /* INPUT STYLES  */
 button {
-  width: auto;
-  height: auto;
-  align-items: flex-start;
+  width: 49%;
+  height: 49%;
+  //align-items: flex-start;
   text-align: center;
   cursor: default;
   color: $primary-color;
   background-color: $secondary-color;
   box-sizing: border-box;
-  padding: 15px;
+  //padding: 15px;
   border-width: 0;
   border-style: none;
   border-color: $secondary-color;
@@ -97,43 +99,43 @@ button {
   }
 }
 
+.container {
+  border: 1px solid blue;
+  //width: 18.4em;
+  width: 100%;
+  margin: 0 auto;
+}
+
 
 
 /* CSS GRID START */
 /* make a grid */
-.wrapper {
-  //width: 100vw;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-gap: 10px;
-}
-.wrapper > * {
-  border: 2px solid green;
-  border-radius: 5px;
-  padding: 20px;
-}
-
-h2 {
-  grid-column: 1 / -1;
-  /* needed for the floated layout */
-  //clear: both;
-}
-
+// .wrapper {
+//   margin: 0 auto;
+//   display: grid;
+//   grid-template-columns: repeat(4, 1fr);
+//   grid-gap: 10px;
+// }
+// .wrapper > * {
+//   border: 2px solid green;
+//   border-radius: 5px;
+//   padding: 20px;
+// }
 // .container {
-  // display: grid;
-  // grid-template-columns: repeat(4, 1fr);
-  // grid-template-rows: repeat(5, 1fr);
-//}
+//   display: grid;
+//   grid-template-columns: repeat(4, 1fr);
+//   grid-template-rows: repeat(5, 1fr);
+// }
+
 
 
 /* We need to set the widths used on floated items back to auto, and remove the bottom margin as when we have grid we have gaps. */
-@supports (display: grid) {
-  .wrapper > * {
-    width: auto;
-    margin: 0;
-  }
-}
+// @supports (display: grid) {
+//   .wrapper > * {
+//     width: auto;
+//     margin: 0;
+//   }
+// }
 
 
 
