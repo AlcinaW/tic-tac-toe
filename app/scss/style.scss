@@ -1,7 +1,178 @@
 /* style.css */
-.testing {
-  width: 71.42857%;
+
+$font-stack: 'Nunito', Helvetica, Arial, cursive;
+$primary-color: rebeccapurple;
+$secondary-color: white;
+$overlay-color: rgba(0,0,0,0.4);
+$overlay-fallback: rgb(0,0,0); /* fallback */
+$modal-color: #fefefe;
+$dark-grey: #888;
+
+* {
 }
-p {
-  color: red;
+html, body {
+  font: 100% $font-stack;
+  font-weight: 400;
+  font-size: 1em;
+  color: $primary-color;
+}
+h1 {
+  text-align: center;
+}
+h2 {
+    text-align: center;
+}
+table {
+  border-collapse: collapse;
+  margin: 0 auto;
+  text-align: center;
+    tr {
+       &:first-child {
+         td {
+           border-top: 0;
+         }
+       }
+       &:last-child {
+         td {
+           border-bottom: 0;
+         }
+       }
+      td {
+        border: 2px solid $primary-color;
+        height: 9em;
+        width: 9em;
+        cursor: pointer;
+        &:first-child {
+          border-left: 0;
+        }
+        &:last-child {
+          border-right: 0;
+        }
+      }
+    }
+}
+.modal {
+  /* hidden by default */
+  display: none;
+  position: fixed;
+  z-index: 1;
+  // padding-top: .5em;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: $overlay-fallback;
+  background-color: $overlay-color;
+  .modal-content {
+    background-color: $modal-color;
+    margin: auto;
+    padding: .5em;
+    border: 1px solid $dark-grey;
+    // width: 50%;
+    width: 100%;
+  }
+  .select-symbol {
+    margin: 0 auto;
+    width: 100%;
+    height: 50%
+  }
+}
+/* INPUT STYLES  */
+button {
+  width: 49%;
+  height: 49%;
+  //align-items: flex-start;
+  text-align: center;
+  cursor: default;
+  color: $primary-color;
+  background-color: $secondary-color;
+  box-sizing: border-box;
+  //padding: 15px;
+  border-width: 0;
+  border-style: none;
+  border-color: $secondary-color;
+  border-image: initial;
+  border: 1px solid red;
+  span {
+    font-size: 15em;
+  }
+}
+
+.container {
+  border: 1px solid blue;
+  //width: 18.4em;
+  width: 100%;
+  margin: 0 auto;
+}
+
+
+
+/* CSS GRID START */
+/* make a grid */
+// .wrapper {
+//   margin: 0 auto;
+//   display: grid;
+//   grid-template-columns: repeat(4, 1fr);
+//   grid-gap: 10px;
+// }
+// .wrapper > * {
+//   border: 2px solid green;
+//   border-radius: 5px;
+//   padding: 20px;
+// }
+// .container {
+//   display: grid;
+//   grid-template-columns: repeat(4, 1fr);
+//   grid-template-rows: repeat(5, 1fr);
+// }
+
+
+
+/* We need to set the widths used on floated items back to auto, and remove the bottom margin as when we have grid we have gaps. */
+// @supports (display: grid) {
+//   .wrapper > * {
+//     width: auto;
+//     margin: 0;
+//   }
+// }
+
+
+
+/* Swapping to full page modals + transitions? */
+/* particle effect by ShawnGrav https://codepen.io/ShawnGrav/pen/ZYVada?editors=0100 */
+.particle-count {
+  display: block;
+  text-align: center;
+  margin: 25px 0;
+}
+.particles > .particle {
+  border-radius: 100%;
+  background: transparent;
+
+  position: absolute;
+
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+
+  &.smaller {
+    width: 5px;
+    height: 5px;
+  }
+  &.small {
+    width: 10px;
+    height: 10px;
+  }
+  &.normal {
+    width: 15px;
+    height: 15px;
+  }
+  &.big {
+    width: 20px;
+    height: 20px;
+  }
+  &.bigger {
+    width: 25px;
+    height: 25px;
+  }
 }
