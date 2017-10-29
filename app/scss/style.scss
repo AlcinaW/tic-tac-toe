@@ -1,12 +1,15 @@
 /* style.css */
 
 $font-stack: 'Nunito', Helvetica, Arial, cursive;
-$primary-color: rebeccapurple;
-$secondary-color: white;
+$primary-color: white;
+$secondary-color: rebeccapurple;
+$select-color: #353535;
+$bg-color: #c9ef00;
 $overlay-color: rgba(0,0,0,0.4);
 $overlay-fallback: rgb(0,0,0); /* fallback */
 $modal-color: #fefefe;
 $dark-grey: #888;
+//#1A535C  #4ECDC4 #F7FFF7 #FF6B6B #FFE66D
 
 * {
 }
@@ -14,13 +17,17 @@ html, body {
   font: 100% $font-stack;
   font-weight: 400;
   font-size: 1em;
-  color: $primary-color;
+  color: $secondary-color;
 }
 h1 {
   text-align: center;
 }
 h2 {
     text-align: center;
+    color: $dark-grey;
+    font-size: 3em;
+    border-bottom: 5px dotted $primary-color;
+    display: inline-block;
 }
 table {
   border-collapse: collapse;
@@ -38,7 +45,7 @@ table {
          }
        }
       td {
-        border: 2px solid $primary-color;
+        border: 2px solid $secondary-color;
         height: 9em;
         width: 9em;
         cursor: pointer;
@@ -65,47 +72,150 @@ table {
   background-color: $overlay-fallback;
   background-color: $overlay-color;
   .modal-content {
-    background-color: $modal-color;
+    background-color: $bg-color;
     margin: auto;
     padding: .5em;
     border: 1px solid $dark-grey;
-    // width: 50%;
+    height: auto;
     width: 100%;
+    text-align: center;
+  //display: block;
   }
   .select-symbol {
     margin: 0 auto;
-    width: 100%;
-    height: 50%
+    //width: 100%;
+    //height: 100%
+  }
+  .endgame {
+    text-align: center;
+    button {
+      border: 1px solid red;
+      display: inline-block;
+    }
   }
 }
 /* INPUT STYLES  */
 button {
-  width: 49%;
-  height: 49%;
+  //width: 49%;
+  //height: 49%;
   //align-items: flex-start;
   text-align: center;
-  cursor: default;
+  cursor: pointer;
   color: $primary-color;
-  background-color: $secondary-color;
+  background-color: $bg-color;
   box-sizing: border-box;
-  //padding: 15px;
   border-width: 0;
   border-style: none;
   border-color: $secondary-color;
   border-image: initial;
-  border: 1px solid red;
   span {
-    font-size: 15em;
+    //font-size: 15em;
   }
 }
 
 .container {
-  border: 1px solid blue;
-  //width: 18.4em;
-  width: 100%;
-  margin: 0 auto;
+  //border: 1px solid blue;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  height: 100%;
+   > .link {
+     //width: 49%;
+   }
 }
 
+
+
+.link {
+	outline: none;
+	text-decoration: none;
+	position: relative;
+	font-size: 10em;
+	line-height: 1;
+	color: #9e9ba4;
+	display: inline-block;
+  text-align: center;
+  	font-weight: 400;
+    font-family: $font-stack;
+}
+.link--x {
+	text-transform: uppercase;
+	overflow: hidden;
+	//line-height: 0.75;
+	color: #b2b0a9;
+  &:hover {
+  	color: #b2b0a9;
+  }
+  &::after {
+  	content: '';
+  	position: absolute;
+  	height: 16px;
+  	width: 100%;
+  	top: 50%;
+  	margin-top: -8px;
+  	right: 0;
+  	background: #F9F9F9;
+  	transform: translate3d(-110%,0,0);
+  	transition: transform 0.4s;
+  	transition-timing-function: cubic-bezier(0.7,0,0.3,1);
+  }
+  &:hover::after {
+  	transform: translate3d(110%,0,0);
+  }
+  &::before {
+  	content: attr(data-letters);
+  	position: absolute;
+  	z-index: 2;
+  	overflow: hidden;
+  	color: $secondary-color;
+  	white-space: nowrap;
+  	width: 0%;
+  	transition: width 0.4s 0.3s;
+  }
+  &:hover::before {
+  	width: 90%;
+  }
+}
+
+.link--o {
+	text-transform: uppercase;
+	overflow: hidden;
+	//line-height: 0.75;
+	color: $primary-color;
+  &:hover {
+  	color: #b2b0a9;
+  }
+  &::after {
+  	content: '';
+  	position: absolute;
+  	height: 16px;
+  	width: 100%;
+  	top: 50%;
+  	margin-top: -8px;
+  	right: 0;
+  	background: $primary-color;
+  	transform: translate3d(-100%,0,0);
+  	transition: transform 0.4s;
+  	transition-timing-function: cubic-bezier(0.7,0,0.3,1);
+  }
+  &:hover::after {
+  	transform: translate3d(100%,0,0);
+  }
+  &::before {
+  	content: attr(data-letters);
+  	position: absolute;
+  	z-index: 2;
+  	overflow: hidden;
+  	color: $select-color;
+  	white-space: nowrap;
+  	width: 0%;
+  	transition: width 0.4s 0.3s;
+  }
+  &:hover::before {
+  	width: 90%;
+  }
+}
 
 
 /* CSS GRID START */

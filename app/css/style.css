@@ -10,7 +10,11 @@ h1 {
   text-align: center; }
 
 h2 {
-  text-align: center; }
+  text-align: center;
+  color: #888;
+  font-size: 3em;
+  border-bottom: 5px dotted white;
+  display: inline-block; }
 
 table {
   border-collapse: collapse;
@@ -43,37 +47,115 @@ table {
   background-color: black;
   background-color: rgba(0, 0, 0, 0.4); }
   .modal .modal-content {
-    background-color: #fefefe;
+    background-color: #c9ef00;
     margin: auto;
     padding: .5em;
     border: 1px solid #888;
-    width: 100%; }
-  .modal .select-symbol {
-    margin: 0 auto;
+    height: auto;
     width: 100%;
-    height: 50%; }
+    text-align: center; }
+  .modal .select-symbol {
+    margin: 0 auto; }
+  .modal .endgame {
+    text-align: center; }
+    .modal .endgame button {
+      border: 1px solid red;
+      display: inline-block; }
 
 /* INPUT STYLES  */
 button {
-  width: 49%;
-  height: 49%;
   text-align: center;
-  cursor: default;
-  color: rebeccapurple;
-  background-color: white;
+  cursor: pointer;
+  color: white;
+  background-color: #c9ef00;
   box-sizing: border-box;
   border-width: 0;
   border-style: none;
-  border-color: white;
-  border-image: initial;
-  border: 1px solid red; }
-  button span {
-    font-size: 15em; }
+  border-color: rebeccapurple;
+  border-image: initial; }
 
 .container {
-  border: 1px solid blue;
-  width: 100%;
-  margin: 0 auto; }
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  height: 100%; }
+
+.link {
+  outline: none;
+  text-decoration: none;
+  position: relative;
+  font-size: 10em;
+  line-height: 1;
+  color: #9e9ba4;
+  display: inline-block;
+  text-align: center;
+  font-weight: 400;
+  font-family: "Nunito", Helvetica, Arial, cursive; }
+
+.link--x {
+  text-transform: uppercase;
+  overflow: hidden;
+  color: #b2b0a9; }
+  .link--x:hover {
+    color: #b2b0a9; }
+  .link--x::after {
+    content: '';
+    position: absolute;
+    height: 16px;
+    width: 100%;
+    top: 50%;
+    margin-top: -8px;
+    right: 0;
+    background: #F9F9F9;
+    transform: translate3d(-110%, 0, 0);
+    transition: transform 0.4s;
+    transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1); }
+  .link--x:hover::after {
+    transform: translate3d(110%, 0, 0); }
+  .link--x::before {
+    content: attr(data-letters);
+    position: absolute;
+    z-index: 2;
+    overflow: hidden;
+    color: rebeccapurple;
+    white-space: nowrap;
+    width: 0%;
+    transition: width 0.4s 0.3s; }
+  .link--x:hover::before {
+    width: 90%; }
+
+.link--o {
+  text-transform: uppercase;
+  overflow: hidden;
+  color: white; }
+  .link--o:hover {
+    color: #b2b0a9; }
+  .link--o::after {
+    content: '';
+    position: absolute;
+    height: 16px;
+    width: 100%;
+    top: 50%;
+    margin-top: -8px;
+    right: 0;
+    background: white;
+    transform: translate3d(-100%, 0, 0);
+    transition: transform 0.4s;
+    transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1); }
+  .link--o:hover::after {
+    transform: translate3d(100%, 0, 0); }
+  .link--o::before {
+    content: attr(data-letters);
+    position: absolute;
+    z-index: 2;
+    overflow: hidden;
+    color: #353535;
+    white-space: nowrap;
+    width: 0%;
+    transition: width 0.4s 0.3s; }
+  .link--o:hover::before {
+    width: 90%; }
 
 /* CSS GRID START */
 /* make a grid */
