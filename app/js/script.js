@@ -3,7 +3,7 @@ const modal = document.getElementById("info-modal");
 //endgame info in modal
 const endgame = document.querySelector(".endgame");
 //endgame info in modal, shows who won
-const endgameText = document.querySelector(".endgame .text");
+const endgameText = document.querySelector(".endgame .winner-text");
 //selection info in modal, play X or O
 const symbolSelect = document.querySelector(".select-symbol");
 // replay button
@@ -31,7 +31,6 @@ const winCombos =[
 
 startGame();
 
-//on load
 window.onload = function() {
   //on load, show modal
   modal.style.display = "block"
@@ -71,7 +70,6 @@ function selectSym(sym){
   symbolSelect.style.display = "none";
 }
 
-//start game
 function startGame() {
   //hide the text that shows who won the game
   endgame.style.display = "none";
@@ -84,10 +82,16 @@ function startGame() {
   //console.log(originalBoard);
   //To DO: replaces this for loop?
   //loop through the cells and remove the colours to replay
-  for (let i = 0; i < cells.length; i++) {
+
+  Array.from(cells).forEach((cell) => {
     cells[i].innerText = "";
     cells[i].style.removeProperty("background-color");
-  }
+  });
+
+  // for (let i = 0; i < cells.length; i++) {
+  //   cells[i].innerText = "";
+  //   cells[i].style.removeProperty("background-color");
+  // }
 }
 
 function turnClick(square) {

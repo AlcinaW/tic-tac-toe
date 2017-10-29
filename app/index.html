@@ -47,14 +47,15 @@
 
       <div class="modal-content select-symbol">
         <!-- enable selection of symbol -->
-        <h2>Let's play!</h2>
+        <h2>Let's play Tic-Tac-Toe!</h2>
 
         <!-- CSS Grid Container-->
         <div class="wrapper container">
         <!-- TODO GET RID OF SPANS-->
         <!-- select symbol to play; X goes first -->
-        <button id="x-button" onClick="selectSym('X')"><span class="close">X</span></button>
-        <button id="o-button" onClick="selectSym('O')"><span class="close">O</span></button>
+
+        <button class="link link--x" data-letters="X" id="x-button" onClick="selectSym('X')"><span class="close">X</span></button>
+        <button class="link link--o" data-letters="O" id="o-button" onClick="selectSym('O')"><span class="close">O</span></button>
         <!-- CSS Grid Container end -->
         </div>
 
@@ -62,11 +63,14 @@
 
       <!-- modal to show who is the winner -->
       <div class="modal-content endgame">
+        <!-- CSS Grid Container-->
+        <div class="container">
       <!-- winner shows here -->
-        <h2><div class="text"></div></h3>
+        <h2><div class="winner-text"></div></h3>
         <!-- only show replay button after the winner is declared -->
         <button id="replay-button" type="button" name="button">Replay</button>
       </div>
+    </div>
     </div>
   </section>
 
