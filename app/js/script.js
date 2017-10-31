@@ -42,6 +42,7 @@ window.onload = function() {
 replayButton.onclick = function() {
     modal.style.display = "block";
     symbolSelect.style.display = "block";
+    //endGame.style.display = "none";
     //run the function that starts the game
     startGame();
 }
@@ -58,6 +59,7 @@ function selectSym(sym){
   aiPlayer = sym === "O" ? "X" : "O";
   originalBoard = Array.from(Array(9).keys());
   //loops through and read the click action on each cell
+  //TODO loop
   for (let i = 0; i < cells.length; i++) {
     cells[i].addEventListener("click", turnClick, false);
   }
@@ -84,8 +86,10 @@ function startGame() {
   //loop through the cells and remove the colours to replay
 
   Array.from(cells).forEach((cell) => {
-    cells[i].innerText = "";
-    cells[i].style.removeProperty("background-color");
+    // cells[i].innerText = "";
+    // cells[i].style.removeProperty("background-color");
+    cell.innerText = "";
+    cell.style.removeProperty("background-color");
   });
 
   // for (let i = 0; i < cells.length; i++) {
@@ -142,11 +146,18 @@ function checkWin(board, player) {
 function gameOver(gameWon){
   //highlight winning combo, disable clicking
   for (let index of winCombos[gameWon.index]) {
+    //TODO fix these colours!
+    //https://developer.mozilla.org/en-US/docs/Web/API/Element/classList
     document.getElementById(index).style.backgroundColor = gameWon.player === humanPlayer ? "blue" : "red";
   }
-  for (let i = 0; i < cells.length; i++) {
-    cells[i].removeEventListener("click", turnClick, false);
-  }
+
+  Array.from(cells).forEach((cell) => {
+    cell.removeEventListener("click", turnClick, false);
+  });
+
+  // for (let i = 0; i < cells.length; i++) {
+  //   cells[i].removeEventListener("click", turnClick, false);
+  // }
   declareWinner(gameWon.player === humanPlayer ? "You win!" : "You lose");
 }
 
@@ -191,6 +202,7 @@ function minimax(newBoard, player) {
   }
 
   let moves = [];
+  //TODO for
   for (let i = 0; i < availableSpots.length; i ++) {
     let move = {};
     move.index = newBoard[availableSpots[i]];
@@ -207,6 +219,26 @@ function minimax(newBoard, player) {
       moves.push(move);
     }
   }
+
+  // Array.from(availableSpots).forEach((spot) => {
+  //   let move = {};
+  //   move.index = newBoard[spot];
+  //   newBoard[spot] = player;
+  //   if (player === aiPlayer) {
+  //     move.score = minimax(newBoard, humanPlayer).score;
+  //   } else {
+  //      move.score =  minimax(newBoard, aiPlayer).score;
+  //   }
+  //   newBoard[spot] = move.index;
+  //   if ((player === aiPlayer && move.score === 10) || (player === humanPlayer && move.score === -10)) {
+  //     return move;
+  //   } else {
+  //     moves.push(move);
+  //   }
+  // });
+
+
+
   let bestMove, bestScore;
   if (player === aiPlayer) {
     bestScore = -1000;
