@@ -3,7 +3,7 @@ const modal = document.getElementById("info-modal");
 //endgame info in modal
 const endgame = document.querySelector(".endgame");
 //endgame info in modal, shows who won
-const endgameText = document.querySelector(".endgame .text");
+const endgameText = document.querySelector(".endgame .winner-text");
 //selection info in modal, play X or O
 const symbolSelect = document.querySelector(".select-symbol");
 // replay button
@@ -31,7 +31,6 @@ const winCombos =[
 
 startGame();
 
-//on load
 window.onload = function() {
   //on load, show modal
   modal.style.display = "block"
@@ -43,6 +42,7 @@ window.onload = function() {
 replayButton.onclick = function() {
     modal.style.display = "block";
     symbolSelect.style.display = "block";
+    //endGame.style.display = "none";
     //run the function that starts the game
     startGame();
 }
@@ -59,6 +59,7 @@ function selectSym(sym){
   aiPlayer = sym === "O" ? "X" : "O";
   originalBoard = Array.from(Array(9).keys());
   //loops through and read the click action on each cell
+  //TODO loop
   for (let i = 0; i < cells.length; i++) {
     cells[i].addEventListener("click", turnClick, false);
   }
@@ -71,7 +72,6 @@ function selectSym(sym){
   symbolSelect.style.display = "none";
 }
 
-//start game
 function startGame() {
   //hide the text that shows who won the game
   endgame.style.display = "none";
@@ -84,10 +84,18 @@ function startGame() {
   //console.log(originalBoard);
   //To DO: replaces this for loop?
   //loop through the cells and remove the colours to replay
-  for (let i = 0; i < cells.length; i++) {
-    cells[i].innerText = "";
-    cells[i].style.removeProperty("background-color");
-  }
+
+  Array.from(cells).forEach((cell) => {
+    // cells[i].innerText = "";
+    // cells[i].style.removeProperty("background-color");
+    cell.innerText = "";
+    cell.style.removeProperty("background-color");
+  });
+
+  // for (let i = 0; i < cells.length; i++) {
+  //   cells[i].innerText = "";
+  //   cells[i].style.removeProperty("background-color");
+  // }
 }
 
 function turnClick(square) {
@@ -138,12 +146,19 @@ function checkWin(board, player) {
 function gameOver(gameWon){
   //highlight winning combo, disable clicking
   for (let index of winCombos[gameWon.index]) {
-    document.getElementById(index).style.backgroundColor = gameWon.player === humanPlayer ? "blue" : "red";
+    //TODO fix these colours!
+    //https://developer.mozilla.org/en-US/docs/Web/API/Element/classList
+    document.getElementById(index).style.backgroundColor = gameWon.player === humanPlayer ? "orange" : "red";
   }
-  for (let i = 0; i < cells.length; i++) {
-    cells[i].removeEventListener("click", turnClick, false);
-  }
-  declareWinner(gameWon.player === humanPlayer ? "You win!" : "You lose");
+
+  Array.from(cells).forEach((cell) => {
+    cell.removeEventListener("click", turnClick, false);
+  });
+
+  // for (let i = 0; i < cells.length; i++) {
+  //   cells[i].removeEventListener("click", turnClick, false);
+  // }
+  declareWinner(gameWon.player === humanPlayer ? "You win~" : "You lose.");
 }
 
 function declareWinner(who) {
@@ -167,7 +182,7 @@ function checkTie() {
   //if all squares are filled and no winner, it is a tie
   if (emptySquares().length === 0){
     for (cell of cells) {
-      cell.style.backgroundColor = "green";
+      cell.style.backgroundColor = "yellow";
       cell.removeEventListener("click",turnClick, false);
     }
     declareWinner("Tie game");
@@ -187,6 +202,7 @@ function minimax(newBoard, player) {
   }
 
   let moves = [];
+  //TODO for
   for (let i = 0; i < availableSpots.length; i ++) {
     let move = {};
     move.index = newBoard[availableSpots[i]];
@@ -203,6 +219,8 @@ function minimax(newBoard, player) {
       moves.push(move);
     }
   }
+
+
   let bestMove, bestScore;
   if (player === aiPlayer) {
     bestScore = -1000;
@@ -223,6 +241,3 @@ function minimax(newBoard, player) {
   }
   return moves[bestMove];
 }
-
-
-////////////////////PARTICLES ////////////////////////////
