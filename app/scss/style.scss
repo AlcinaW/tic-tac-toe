@@ -9,6 +9,7 @@ $overlay-color: rgba(0,0,0,0.4);
 $overlay-fallback: rgb(0,0,0); /* fallback */
 $modal-color: #fefefe;
 $dark-grey: #888;
+$peachy-pink: #fff1de;
 //#1A535C  #4ECDC4 #F7FFF7 #FF6B6B #FFE66D
 
 * {
@@ -18,6 +19,7 @@ html, body {
   font-weight: 400;
   font-size: 1em;
   color: $secondary-color;
+  background-color: $peachy-pink;
 }
 h1 {
   text-align: center;
@@ -28,6 +30,14 @@ h2 {
     font-size: 3em;
     border-bottom: 5px dotted $primary-color;
     display: inline-block;
+}
+h3 {
+    text-align: center;
+    color: $dark-grey;
+    font-size: 1.5em;
+    border-bottom: 5px dotted $primary-color;
+    display: inline-block;
+    margin: .5em;
 }
 table {
   border-collapse: collapse;
@@ -90,8 +100,11 @@ table {
     text-align: center;
     margin: 0 auto;
     button {
-      border: 1px solid $primary-color;
+      //border: 1px solid $dark-grey;
       display: block;
+      margin: 0 auto;
+      //padding: 20px 25px;
+      padding: 20px 15px;
     }
   }
 }
@@ -126,7 +139,10 @@ button {
      //width: 49%;
    }
 }
-
+.wrapper {
+  display: block;
+  width: 100%;
+}
 
 
 .link {
@@ -220,71 +236,42 @@ button {
 }
 
 
-/* CSS GRID START */
-/* make a grid */
-// .wrapper {
-//   margin: 0 auto;
-//   display: grid;
-//   grid-template-columns: repeat(4, 1fr);
-//   grid-gap: 10px;
-// }
-// .wrapper > * {
-//   border: 2px solid green;
-//   border-radius: 5px;
-//   padding: 20px;
-// }
-// .container {
-//   display: grid;
-//   grid-template-columns: repeat(4, 1fr);
-//   grid-template-rows: repeat(5, 1fr);
-// }
 
-
-
-/* We need to set the widths used on floated items back to auto, and remove the bottom margin as when we have grid we have gaps. */
-// @supports (display: grid) {
-//   .wrapper > * {
-//     width: auto;
-//     margin: 0;
-//   }
-// }
-
-
-
-/* Swapping to full page modals + transitions? */
-/* particle effect by ShawnGrav https://codepen.io/ShawnGrav/pen/ZYVada?editors=0100 */
-.particle-count {
-  display: block;
-  text-align: center;
-  margin: 25px 0;
-}
-.particles > .particle {
-  border-radius: 100%;
-  background: transparent;
-
-  position: absolute;
-
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-
-  &.smaller {
-    width: 5px;
-    height: 5px;
+.link--replay {
+  font-size: 2.5em;
+	overflow: hidden;
+	//line-height: 0.75;
+	color: $primary-color;
+  &:hover {
+  	color: #b2b0a9;
   }
-  &.small {
-    width: 10px;
-    height: 10px;
+  &::after {
+  	content: '';
+  	position: absolute;
+  	height: 16px;
+  	width: 100%;
+  	top: 50%;
+  	margin-top: -8px;
+  	right: 0;
+  	background: $primary-color;
+  	transform: translate3d(-100%,0,0);
+  	transition: transform 0.4s;
+  	transition-timing-function: cubic-bezier(0.7,0,0.3,1);
   }
-  &.normal {
-    width: 15px;
-    height: 15px;
+  &:hover::after {
+  	transform: translate3d(110%,0,0);
   }
-  &.big {
-    width: 20px;
-    height: 20px;
+  &::before {
+  	content: attr(data-letters);
+  	position: absolute;
+  	z-index: 2;
+  	overflow: hidden;
+  	color: $select-color;
+  	white-space: nowrap;
+  	width: 0%;
+  	transition: width 0.4s 0.3s;
   }
-  &.bigger {
-    width: 25px;
-    height: 25px;
+  &:hover::before {
+  	width: 80%;
   }
 }

@@ -158,7 +158,7 @@ function gameOver(gameWon){
   // for (let i = 0; i < cells.length; i++) {
   //   cells[i].removeEventListener("click", turnClick, false);
   // }
-  declareWinner(gameWon.player === humanPlayer ? "You win!" : "You lose");
+  declareWinner(gameWon.player === humanPlayer ? "You win~" : "You lose.");
 }
 
 function declareWinner(who) {
@@ -220,24 +220,6 @@ function minimax(newBoard, player) {
     }
   }
 
-  // Array.from(availableSpots).forEach((spot) => {
-  //   let move = {};
-  //   move.index = newBoard[spot];
-  //   newBoard[spot] = player;
-  //   if (player === aiPlayer) {
-  //     move.score = minimax(newBoard, humanPlayer).score;
-  //   } else {
-  //      move.score =  minimax(newBoard, aiPlayer).score;
-  //   }
-  //   newBoard[spot] = move.index;
-  //   if ((player === aiPlayer && move.score === 10) || (player === humanPlayer && move.score === -10)) {
-  //     return move;
-  //   } else {
-  //     moves.push(move);
-  //   }
-  // });
-
-
 
   let bestMove, bestScore;
   if (player === aiPlayer) {
@@ -259,6 +241,3 @@ function minimax(newBoard, player) {
   }
   return moves[bestMove];
 }
-
-
-////////////////////PARTICLES ////////////////////////////
