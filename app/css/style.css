@@ -57,10 +57,11 @@ table {
   .modal .select-symbol {
     margin: 0 auto; }
   .modal .endgame {
-    text-align: center; }
+    text-align: center;
+    margin: 0 auto; }
     .modal .endgame button {
-      border: 1px solid red;
-      display: inline-block; }
+      border: 1px solid white;
+      display: block; }
 
 /* INPUT STYLES  */
 button {
@@ -72,7 +73,8 @@ button {
   border-width: 0;
   border-style: none;
   border-color: rebeccapurple;
-  border-image: initial; }
+  border-image: initial;
+  display: block; }
 
 .container {
   display: flex;

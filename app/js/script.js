@@ -148,7 +148,7 @@ function gameOver(gameWon){
   for (let index of winCombos[gameWon.index]) {
     //TODO fix these colours!
     //https://developer.mozilla.org/en-US/docs/Web/API/Element/classList
-    document.getElementById(index).style.backgroundColor = gameWon.player === humanPlayer ? "blue" : "red";
+    document.getElementById(index).style.backgroundColor = gameWon.player === humanPlayer ? "orange" : "red";
   }
 
   Array.from(cells).forEach((cell) => {
@@ -182,7 +182,7 @@ function checkTie() {
   //if all squares are filled and no winner, it is a tie
   if (emptySquares().length === 0){
     for (cell of cells) {
-      cell.style.backgroundColor = "green";
+      cell.style.backgroundColor = "yellow";
       cell.removeEventListener("click",turnClick, false);
     }
     declareWinner("Tie game");
