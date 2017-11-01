@@ -1,5 +1,5 @@
-# Tic-Tac-Toe 
+# Tic-Tac-Toe
 
 Tic Tac Toe, JavaScript style.
 
-[Work-in-progress demo](https://alcinaw.github.io/demos/tic-tac-toe/index.html).
+View the work-in-progress demo on [Codepen](https://codepen.io/AlcinaW/pen/vWOMdb).
