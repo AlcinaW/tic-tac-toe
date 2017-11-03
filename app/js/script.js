@@ -154,10 +154,6 @@ function gameOver(gameWon){
   Array.from(cells).forEach((cell) => {
     cell.removeEventListener("click", turnClick, false);
   });
-
-  // for (let i = 0; i < cells.length; i++) {
-  //   cells[i].removeEventListener("click", turnClick, false);
-  // }
   declareWinner(gameWon.player === humanPlayer ? "You win~" : "You lose.");
 }
 
@@ -185,7 +181,7 @@ function checkTie() {
       cell.style.backgroundColor = "yellow";
       cell.removeEventListener("click",turnClick, false);
     }
-    declareWinner("Tie game");
+    declareWinner("Tie game.");
     return true;
   }
   return false;

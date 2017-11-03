@@ -1,80 +1,99 @@
 /* style.css */
 
-//TODO Clean up colour names to make sure they make sense and fix loops
+////////////////////// VARIABLES /////////////////////////////////
 $font-stack: 'Nunito', Helvetica, Arial, cursive;
-$primary-color: white;
-$secondary-color: rebeccapurple;
-$select-color: #353535;
-$bg-color: #c9ef00;
-$overlay-color: rgba(0,0,0,0.4);
-$overlay-fallback: rgb(0,0,0); /* fallback */
-$modal-color: #fefefe;
+
+$white: white;
+$purple: rebeccapurple;
+$light-purple: #9e9ba4;
+$off-black: #353535;
+$lime-green: #c9ef00;
+$off-white: #fefefe;
 $dark-grey: #888;
 $peachy-pink: #fff1de;
-//#1A535C  #4ECDC4 #F7FFF7 #FF6B6B #FFE66D
 
+$overlay-color: rgba(0,0,0,0.4);
+$overlay-fallback: rgb(0,0,0); /* fallback */
+
+////////////////////// STYLING /////////////////////////////////
 * {
+  margin: 0;
+  padding: 0;
 }
 html, body {
   font: 100% $font-stack;
   font-weight: 400;
   font-size: 1em;
-  color: $secondary-color;
   background-color: $peachy-pink;
-}
-h1 {
   text-align: center;
-}
-h2 {
-    text-align: center;
+  h1 {
     color: $dark-grey;
     font-size: 3em;
-    border-bottom: 5px dotted $primary-color;
     display: inline-block;
+    border-bottom: 5px dotted $white;
+  }
+  h2 {
+      color: $dark-grey;
+      font-size: 3em;
+      display: inline-block;
+      border-bottom: 5px dotted $white;
+  }
+  h3 {
+      color: $dark-grey;
+      font-size: 1.5em;
+      margin: .5em;
+      display: inline-block;
+      border-bottom: 5px dotted $white;
+  }
 }
-h3 {
-    text-align: center;
-    color: $dark-grey;
-    font-size: 1.5em;
-    border-bottom: 5px dotted $primary-color;
-    display: inline-block;
-    margin: .5em;
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  height: 100%;
 }
+.wrapper {
+  display: block;
+  width: 100%;
+}
+////////////////////// TIC TAC TOE TABLE /////////////////////////////////
 table {
   border-collapse: collapse;
   margin: 0 auto;
   text-align: center;
-    tr {
-       &:first-child {
-         td {
-           border-top: 0;
-         }
+  margin-top: 1em;
+  tr {
+     &:first-child {
+       td {
+         border-top: 0;
        }
-       &:last-child {
-         td {
-           border-bottom: 0;
-         }
+     }
+     &:last-child {
+       td {
+         border-bottom: 0;
        }
-      td {
-        border: 2px solid $secondary-color;
-        height: 9em;
-        width: 9em;
-        cursor: pointer;
-        &:first-child {
-          border-left: 0;
-        }
-        &:last-child {
-          border-right: 0;
-        }
+     }
+    td {
+      border: 2px solid $purple;
+      height: 9em;
+      width: 9em;
+      cursor: pointer;
+      &:first-child {
+        border-left: 0;
+      }
+      &:last-child {
+        border-right: 0;
       }
     }
+  }
 }
+////////////////////// INFO MODALS /////////////////////////////////
 .modal {
   /* hidden by default */
   display: none;
   position: fixed;
   z-index: 1;
-  // padding-top: .5em;
   left: 0;
   top: 0;
   width: 100%;
@@ -83,166 +102,128 @@ table {
   background-color: $overlay-fallback;
   background-color: $overlay-color;
   .modal-content {
-    background-color: $bg-color;
+    background-color: $lime-green;
     margin: auto;
     padding: .5em;
     border: 1px solid $dark-grey;
     height: auto;
-    width: 100%;
-    text-align: center;
-  //display: block;
   }
   .select-symbol {
     margin: 0 auto;
-    //width: 100%;
-    //height: 100%
   }
   .endgame {
     text-align: center;
     margin: 0 auto;
     button {
-      //border: 1px solid $dark-grey;
       display: block;
       margin: 0 auto;
-      //padding: 20px 25px;
       padding: 20px 15px;
     }
   }
 }
-/* INPUT STYLES  */
+////////////////////// INPUT STYLES /////////////////////////////////
 button {
-  //width: 49%;
-  //height: 49%;
-  //align-items: flex-start;
   text-align: center;
   cursor: pointer;
-  color: $primary-color;
-  background-color: $bg-color;
+  color: $white;
+  background-color: $lime-green;
   box-sizing: border-box;
   border-width: 0;
   border-style: none;
-  border-color: $secondary-color;
+  border-color: $purple;
   border-image: initial;
   display: block;
-  span {
-    //font-size: 15em;
-  }
 }
-
-.container {
-  //border: 1px solid blue;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: center;
-  height: 100%;
-   > .link {
-     //width: 49%;
-   }
-}
-.wrapper {
-  display: block;
-  width: 100%;
-}
-
-
 .link {
 	outline: none;
 	text-decoration: none;
 	position: relative;
 	font-size: 10em;
 	line-height: 1;
-	color: #9e9ba4;
+	color: $light-purple;
 	display: inline-block;
   text-align: center;
-  	font-weight: 400;
-    font-family: $font-stack;
+  font-weight: 400;
+  font-family: $font-stack;
 }
 .link--x {
-	text-transform: uppercase;
-	overflow: hidden;
-	//line-height: 0.75;
-	color: #b2b0a9;
+  text-transform: uppercase;
+  overflow: hidden;
+  color: #b2b0a9;
   &:hover {
-  	color: #b2b0a9;
+    color: #b2b0a9;
   }
   &::after {
-  	content: '';
-  	position: absolute;
-  	height: 16px;
-  	width: 100%;
-  	top: 50%;
-  	margin-top: -8px;
-  	right: 0;
-  	background: #F9F9F9;
-  	transform: translate3d(-110%,0,0);
-  	transition: transform 0.4s;
-  	transition-timing-function: cubic-bezier(0.7,0,0.3,1);
+    content: '';
+    position: absolute;
+    height: 16px;
+    width: 100%;
+    top: 50%;
+    margin-top: -8px;
+    right: 0;
+    background: #F9F9F9;
+    transform: translate3d(-100%,0,0);
+    transition: transform 0.4s;
+    transition-timing-function: cubic-bezier(0.7,0,0.3,1);
   }
   &:hover::after {
-  	transform: translate3d(110%,0,0);
+    transform: translate3d(100%,0,0);
   }
   &::before {
-  	content: attr(data-letters);
-  	position: absolute;
-  	z-index: 2;
-  	overflow: hidden;
-  	color: $secondary-color;
-  	white-space: nowrap;
-  	width: 0%;
-  	transition: width 0.4s 0.3s;
+    content: attr(data-letters);
+    position: absolute;
+    z-index: 2;
+    overflow: hidden;
+    color: $purple;
+    white-space: nowrap;
+    width: 0%;
+    transition: width 0.4s 0.3s;
   }
   &:hover::before {
-  	width: 90%;
+    width: 100%;
   }
 }
-
 .link--o {
-	text-transform: uppercase;
-	overflow: hidden;
-	//line-height: 0.75;
-	color: $primary-color;
+  text-transform: uppercase;
+  overflow: hidden;
+  color: $white;
   &:hover {
-  	color: #b2b0a9;
+    color: #b2b0a9;
   }
   &::after {
-  	content: '';
-  	position: absolute;
-  	height: 16px;
-  	width: 100%;
-  	top: 50%;
-  	margin-top: -8px;
-  	right: 0;
-  	background: $primary-color;
-  	transform: translate3d(-100%,0,0);
-  	transition: transform 0.4s;
-  	transition-timing-function: cubic-bezier(0.7,0,0.3,1);
+    content: '';
+    position: absolute;
+    height: 16px;
+    width: 100%;
+    top: 50%;
+    margin-top: -8px;
+    right: 0;
+    background: $white;
+    transform: translate3d(-100%,0,0);
+    transition: transform 0.4s;
+    transition-timing-function: cubic-bezier(0.7,0,0.3,1);
   }
   &:hover::after {
-  	transform: translate3d(100%,0,0);
+    transform: translate3d(100%,0,0);
   }
   &::before {
-  	content: attr(data-letters);
-  	position: absolute;
-  	z-index: 2;
-  	overflow: hidden;
-  	color: $select-color;
-  	white-space: nowrap;
-  	width: 0%;
-  	transition: width 0.4s 0.3s;
+    content: attr(data-letters);
+    position: absolute;
+    z-index: 2;
+    overflow: hidden;
+    color: $off-black;
+    white-space: nowrap;
+    width: 0%;
+    transition: width 0.4s 0.3s;
   }
   &:hover::before {
-  	width: 90%;
+    width: 100%;
   }
 }
-
-
-
 .link--replay {
   font-size: 2.5em;
 	overflow: hidden;
-	//line-height: 0.75;
-	color: $primary-color;
+	color: $white;
   &:hover {
   	color: #b2b0a9;
   }
@@ -254,7 +235,7 @@ button {
   	top: 50%;
   	margin-top: -8px;
   	right: 0;
-  	background: $primary-color;
+  	background: $white;
   	transform: translate3d(-100%,0,0);
   	transition: transform 0.4s;
   	transition-timing-function: cubic-bezier(0.7,0,0.3,1);
@@ -267,7 +248,7 @@ button {
   	position: absolute;
   	z-index: 2;
   	overflow: hidden;
-  	color: $select-color;
+  	color: $off-black;
   	white-space: nowrap;
   	width: 0%;
   	transition: width 0.4s 0.3s;
