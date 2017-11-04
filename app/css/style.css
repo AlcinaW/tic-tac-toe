@@ -1,34 +1,48 @@
 /* style.css */
 /* fallback */
+* {
+  margin: 0;
+  padding: 0; }
+
 html, body {
   font: 100% "Nunito", Helvetica, Arial, cursive;
   font-weight: 400;
   font-size: 1em;
-  color: rebeccapurple;
-  background-color: #fff1de; }
-
-h1 {
+  background-color: #fff1de;
   text-align: center; }
+  html h1, body h1 {
+    color: #888;
+    font-size: 3em;
+    display: inline-block;
+    border-bottom: 5px dotted white; }
+  html h2, body h2 {
+    color: #888;
+    font-size: 3em;
+    display: inline-block;
+    border-bottom: 5px dotted white; }
+  html h3, body h3 {
+    color: #888;
+    font-size: 1.5em;
+    margin: .5em;
+    display: inline-block;
+    border-bottom: 5px dotted white; }
 
-h2 {
-  text-align: center;
-  color: #888;
-  font-size: 3em;
-  border-bottom: 5px dotted white;
-  display: inline-block; }
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  height: 100%; }
 
-h3 {
-  text-align: center;
-  color: #888;
-  font-size: 1.5em;
-  border-bottom: 5px dotted white;
-  display: inline-block;
-  margin: .5em; }
+.wrapper {
+  display: block;
+  width: 100%; }
 
 table {
   border-collapse: collapse;
   margin: 0 auto;
-  text-align: center; }
+  text-align: center;
+  margin-top: 1em; }
   table tr:first-child td {
     border-top: 0; }
   table tr:last-child td {
@@ -60,9 +74,7 @@ table {
     margin: auto;
     padding: .5em;
     border: 1px solid #888;
-    height: auto;
-    width: 100%;
-    text-align: center; }
+    height: auto; }
   .modal .select-symbol {
     margin: 0 auto; }
   .modal .endgame {
@@ -73,7 +85,6 @@ table {
       margin: 0 auto;
       padding: 20px 15px; }
 
-/* INPUT STYLES  */
 button {
   text-align: center;
   cursor: pointer;
@@ -85,17 +96,6 @@ button {
   border-color: rebeccapurple;
   border-image: initial;
   display: block; }
-
-.container {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  justify-content: center;
-  height: 100%; }
-
-.wrapper {
-  display: block;
-  width: 100%; }
 
 .link {
   outline: none;
@@ -124,11 +124,11 @@ button {
     margin-top: -8px;
     right: 0;
     background: #F9F9F9;
-    transform: translate3d(-110%, 0, 0);
+    transform: translate3d(-100%, 0, 0);
     transition: transform 0.4s;
     transition-timing-function: cubic-bezier(0.7, 0, 0.3, 1); }
   .link--x:hover::after {
-    transform: translate3d(110%, 0, 0); }
+    transform: translate3d(100%, 0, 0); }
   .link--x::before {
     content: attr(data-letters);
     position: absolute;
@@ -139,7 +139,7 @@ button {
     width: 0%;
     transition: width 0.4s 0.3s; }
   .link--x:hover::before {
-    width: 90%; }
+    width: 100%; }
 
 .link--o {
   text-transform: uppercase;
@@ -171,7 +171,7 @@ button {
     width: 0%;
     transition: width 0.4s 0.3s; }
   .link--o:hover::before {
-    width: 90%; }
+    width: 100%; }
 
 .link--replay {
   font-size: 2.5em;
